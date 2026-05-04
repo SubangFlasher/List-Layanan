@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subang Dev - Layanan Unlock & Flash Profesional</title>
     <style>
+    	html, body {
+    width: 100%;
+    overflow-x: hidden; 
+    position: relative;
+}
+
         :root {
             --primary: #00dbde;
             --secondary: #fc00ff;
@@ -30,7 +36,7 @@
             cursor: none;
         }
 
-        /* Custom Cursor */
+        
         .cursor {
             position: fixed;
             width: 20px;
@@ -152,7 +158,8 @@
             width: 100%;
         }
 
-        /* Main Content */
+        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -203,7 +210,8 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Product Cards */
+        
+
         .tool-category {
             margin-bottom: 3rem;
             background: rgba(255, 255, 255, 0.05);
@@ -288,7 +296,7 @@
             box-shadow: 0 5px 15px rgba(0, 219, 222, 0.4);
         }
 
-        /* Social Media */
+        
         .social-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -297,39 +305,58 @@
         }
 
         .social-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-decoration: none;
-            color: var(--light);
-        }
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.2rem 0.8rem; 
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    color: var(--light);
+    
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 160px; 
+    word-wrap: break-word; 
+    overflow: hidden;
+}
 
-        .social-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.1);
-        }
+.social-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem; 
+    color: var(--primary);
+}
 
-        .social-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
+.social-card p {
+    font-size: 0.75rem; 
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0;
+    line-height: 1.4;
+    word-break: break-all; 
+    width: 100%;
+}
 
-        .social-card h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
 
-        .social-card p {
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 0;
-        }
+@media (max-width: 480px) {
+    .social-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px; 
+    }
+    
+    .social-card {
+        padding: 1rem 0.5rem;
+    }
+    
+    .social-icon {
+        font-size: 1.5rem; 
+    }
+}
 
-        /* Server Info */
+
+        
         .server-table {
             width: 100%;
             border-collapse: collapse;
@@ -368,7 +395,7 @@
             color: var(--danger);
         }
 
-        /* Footer */
+        
         footer {
             text-align: center;
             padding: 2rem;
@@ -378,36 +405,46 @@
             z-index: 10;
         }
 
-        /* Responsive Styles */
-        @media (max-width: 768px) {
+        
+                @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
+                position: relative;
+                z-index: 1002; 
             }
             
             nav {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 70%;
+                width: 280px; 
+                max-width: 80%; 
                 height: 100vh;
-                background: rgba(15, 15, 26, 0.95);
-                backdrop-filter: blur(10px);
+                background: rgba(15, 15, 26, 0.98);
+                backdrop-filter: blur(15px);
+                display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                transition: right 0.3s ease;
-                z-index: 100;
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 1001;
+                visibility: hidden; 
+                box-shadow: -10px 0 30px rgba(0,0,0,0.5);
             }
             
             nav.active {
                 right: 0;
+                visibility: visible; 
             }
             
             nav ul {
                 flex-direction: column;
                 align-items: center;
                 gap: 2rem;
+                width: 100%;
             }
+        }
+
             
             .tool-header {
                 flex-direction: column;
@@ -434,19 +471,31 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+        
+        @media (max-width: 1024px) {
+    .cursor, .cursor-follower {
+        display: none !important;
+    }
+    body {
+        cursor: auto !important;
+    }
+}
+
+
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Custom Cursor -->
+	
+    
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
 
-    <!-- Particles Animation -->
+    
     <div class="particles" id="particles"></div>
 
-    <!-- Header & Navigation -->
+    
     <header>
         <div class="logo">Subang Dev</div>
         <button class="menu-toggle" id="menuToggle">
@@ -464,9 +513,9 @@
         </nav>
     </header>
 
-    <!-- Main Content -->
+    
     <main class="container">
-        <!-- Products Section -->
+        
         <section id="layanan" class="section active">
             <h1>Layanan Produk Kami</h1>
             <p>Berbagai tool berkualitas tinggi untuk memenuhi kebutuhan unlock dan flashing perangkat Anda.</p>
@@ -660,7 +709,7 @@
             </div>
         </section>
         
-        <!-- Bypass Section -->
+        
         <section id="Bypass" class="section">
             <h1>Layanan Bypass</h1>
             <p>Pilih Bypass yang ingin Anda Beli dan nikmati layanan terbaik kami dengan harga kompetitif.</p>
@@ -695,10 +744,10 @@
             </div>
         </section>
             
-        <!-- IMEI Section -->
+        
         <section id="Imei" class="section">
             <h1>Layanan Pairing IMEI</h1>
-            <p>Pilih 1Bulan/3Bulan yang ingin Anda Beli dan nikmati layanan terbaik kami dengan harga kompetitif.</p>
+            <p>Pilih 3Bulan yang ingin Anda Beli dan nikmati layanan terbaik kami dengan harga kompetitif.</p>
             
             <div class="tool-category">
                 <div class="tool-header">
@@ -711,25 +760,20 @@
                 
                 <div class="pricing-table">
                     <div class="price-card">
-                        <h3>1 Bulan</h3>
-                        <div class="price">Rp 165.000</div>
-                        <button class="buy-btn" data-tool="Unblock IMEI" data-duration="1 Bulan" data-price="180000">Beli Sekarang</button>
-                    </div>
-                    <div class="price-card">
-                        <h3>3 Bulan Fast (Max 1-6 Jam)</h3>
-                        <div class="price">Rp 195.000</div>
+                        <h3>3 Bulan Fast (Minimal 2 Qty)</h3>
+                        <div class="price">Rp 130.000</div>
                         <button class="buy-btn" data-tool="Unblock IMEI" data-duration="3 Bulan Fast" data-price="260000">Beli Sekarang</button>
                     </div>
                     <div class="price-card">
                         <h3>3 Bulan Fast (Menitan)</h3>
-                        <div class="price">Rp 225.000</div>
+                        <div class="price">Rp 150.000</div>
                         <button class="buy-btn" data-tool="Unblock IMEI" data-duration="3 Bulan Fast" data-price="260000">Beli Sekarang</button>
                     </div>
                 </div>
             </div>
         </section>
             
-        <!-- Rental Section -->
+        
         <section id="sewa" class="section">
             <h1>Sewa Tool</h1>
             <p>Pilih tool yang ingin Anda sewa dan nikmati layanan terbaik kami dengan harga kompetitif.</p>
@@ -1039,7 +1083,7 @@
             </div>
         </section>
 
-        <!-- Social Media Section -->
+        
         <section id="sosial" class="section">
             <h1>Sosial Media Kami</h1>
             <p>Ikuti kami di berbagai platform untuk mendapatkan informasi terbaru dan promo spesial.</p>
@@ -1098,7 +1142,7 @@
             </div>
         </section>
 
-        <!-- Server Info Section -->
+        
         <section id="server" class="section">
             <h1>Info Server</h1>
             <p>Status server kami secara real-time untuk berbagai merek perangkat.</p>
@@ -1155,7 +1199,7 @@
                     <tr>
                         <td>Server Global</td>
                         <td>FRP Vivo</td>
-                        <td><span class="status offline">Offline</span></td>
+                        <td><span class="status online">Online</span></td>
                     </tr>
                     <tr>
                         <td>Server Global</td>
@@ -1167,12 +1211,25 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    
     <footer>
-        <p>&copy; 2025 Subang Dev. All rights reserved.</p>
+        <p>&copy; 2026 Subang Dev. All rights reserved.</p>
     </footer>
 
     <script>
+    	// Tambahkan di awal script kursor
+if (window.innerWidth > 1024) {
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        
+        setTimeout(() => {
+            cursorFollower.style.left = e.clientX + 'px';
+            cursorFollower.style.top = e.clientY + 'px';
+        }, 100);
+    });
+}
+
         // Custom Cursor
         const cursor = document.querySelector('.cursor');
         const cursorFollower = document.querySelector('.cursor-follower');
@@ -1197,7 +1254,7 @@
             cursorFollower.style.opacity = '0';
         });
 
-        // Cursor Hover Effects
+        
         const interactiveElements = document.querySelectorAll(
             'a, button, .price-card, .social-card, input, textarea, select'
         );
@@ -1218,7 +1275,7 @@
             });
         });
 
-        // Particles Animation
+        
         const particlesContainer = document.getElementById('particles');
         const particleCount = window.innerWidth < 768 ? 20 : 30;
 
@@ -1226,26 +1283,26 @@
             const particle = document.createElement('div');
             particle.classList.add('particle');
             
-            // Random position
+            
             particle.style.left = Math.random() * 100 + 'vw';
             particle.style.top = Math.random() * 100 + 'vh';
             
-            // Random size
+            
             const size = Math.random() * 5 + 2;
             particle.style.width = size + 'px';
             particle.style.height = size + 'px';
             
-            // Random opacity
+            
             particle.style.opacity = Math.random() * 0.5 + 0.1;
             
-            // Random animation
+            
             particle.style.animationDuration = Math.random() * 20 + 10 + 's';
             particle.style.animationDelay = Math.random() * 5 + 's';
             
             particlesContainer.appendChild(particle);
         }
 
-        // Mobile Menu Toggle
+        
         const menuToggle = document.getElementById('menuToggle');
         const mainNav = document.getElementById('mainNav');
 
@@ -1256,7 +1313,7 @@
                 : '<i class="fas fa-bars"></i>';
         });
 
-        // Navigation
+        
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('.section');
 
@@ -1264,17 +1321,18 @@
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 
-                // Close mobile menu if open
+                
                 if (mainNav.classList.contains('active')) {
                     mainNav.classList.remove('active');
                     menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
                 }
                 
-                // Update active nav link
+                
                 navLinks.forEach(navLink => navLink.classList.remove('active'));
                 link.classList.add('active');
                 
-                // Show corresponding section
+                
+
                 const sectionId = link.getAttribute('data-section');
                 sections.forEach(section => {
                     section.classList.remove('active');
@@ -1283,7 +1341,8 @@
                     }
                 });
                 
-                // Smooth scroll to top
+                
+
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
@@ -1291,7 +1350,7 @@
             });
         });
 
-        // WhatsApp Order Function
+        
         const buyButtons = document.querySelectorAll('.buy-btn');
         const whatsappNumber = '6281223742357'; // Replace with your WhatsApp number
         
@@ -1312,7 +1371,7 @@
             });
         });
 
-        // Scroll Animation
+        
         const animateOnScroll = () => {
             const elements = document.querySelectorAll('.price-card, .social-card, .server-table, .tool-category');
             
@@ -1327,7 +1386,7 @@
             });
         };
 
-        // Initialize elements for animation
+        
         document.querySelectorAll('.price-card, .social-card, .tool-category').forEach(element => {
             element.style.opacity = '0';
             element.style.transform = 'translateY(20px)';
@@ -1337,9 +1396,9 @@
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
 
-        // Responsive adjustments
+        
         function handleResponsive() {
-            // Adjust particles count based on screen size
+            
             const currentParticles = document.querySelectorAll('.particle');
             const desiredCount = window.innerWidth < 768 ? 20 : 30;
             
