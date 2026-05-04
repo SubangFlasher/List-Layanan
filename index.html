@@ -11,15 +11,68 @@
     position: relative;
 }
 
-        :root {
-            --primary: #00dbde;
-            --secondary: #fc00ff;
-            --dark: #0f0f1a;
-            --light: #ffffff;
-            --gray: rgba(255, 255, 255, 0.1);
-            --success: #0f0;
-            --danger: #f00;
-        }
+:root {
+    
+    --primary: #ff0000;       
+    --secondary: #660000;     
+    --accent: #ff4d4d;        
+    --dark: #0a0000;          
+    --light: #ffffff;
+    --gray: rgba(255, 0, 0, 0.1);
+    --success: #00ff00;
+    --danger: #ff0000;
+    --glow: 0 0 15px rgba(255, 0, 0, 0.7);
+}
+
+
+body {
+    background: radial-gradient(circle at center, #1a0000 0%, var(--dark) 100%);
+    color: var(--light);
+}
+
+
+.logo {
+    background: linear-gradient(45deg, #ff0000, #ff4d4d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+
+.buy-btn {
+    background: linear-gradient(45deg, #8b0000, #ff0000);
+    border: 1px solid #ff4d4d;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+}
+
+.buy-btn:hover {
+    background: linear-gradient(45deg, #ff0000, #ff4d4d);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+}
+
+
+.tool-category, .price-card, .social-card {
+    border: 1px solid rgba(255, 0, 0, 0.2) !important;
+}
+
+.price-card:hover {
+    border-color: #ff0000 !important;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--dark);
+}
+::-webkit-scrollbar-thumb {
+    background: #ff0000;
+    border-radius: 10px;
+}
+
         
         * {
             margin: 0;
@@ -72,14 +125,11 @@
             pointer-events: none;
         }
 
-        .particle {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            animation: float 15s infinite linear;
-        }
+.particle {
+    background: rgba(255, 0, 0, 0.4);
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
 
         @keyframes float {
             0% {
